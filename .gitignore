@@ -1,6 +1,9 @@
 temp/
+calibration/
 *.asv
 *.mat
 *.png
 *.hdr
 *.bsq
+*.pgm
+*.key

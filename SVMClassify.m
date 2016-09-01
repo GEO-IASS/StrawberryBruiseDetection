@@ -1,17 +1,11 @@
-function predicted_labels = SVMClassification(trainingData, trainingLabels, testingData, testingLabels)
+function [predicted_labels, svm] = SVMClassify(trainingData, trainingLabels, testingData, testingLabels)
 % SVMClassifer
 addpath('..\tools\libsvm-3.20\matlab');
-% myCluster = parcluster('local');
-% myCluster.NumWorkers = 4;
-% saveProfile(myCluster);
-% numWorkers = matlabpool('size');
-% isPoolOpen = (numWorkers > 0);
-% if(~isPoolOpen)
-%     matlabpool;
-% end
-% select parameters c and g
-log2cList = -5:1:6;
-log2gList = -5:1:6;
+if ~exist('testingLabels', 'var');
+    testingLabels = zeros(size(testingData,1),1);
+end
+log2cList = -1:2:3;
+log2gList = -1:2:3;
 cv = zeros(length(log2cList), length(log2gList) );
 parfor indexC = 1:length(log2cList)
     log2c = log2cList(indexC);
