@@ -1,4 +1,6 @@
-% calculate the tranform matrix
+% calculate the tranform matrix between HSIVIS and HSIIR for the subsequent
+% registration
+
 imgVIS = Load_Spec('.\HSIVIS\checker.hdr');
 imgIR = Load_Spec('.\HSIIR\checker.hdr');
 imgAnchor = imadjust(imgVIS(:,:,31)); 
